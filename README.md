@@ -1,1 +1,3 @@
-Vergeet niet de config.php voor gebruik aan te passen aan jou wamp omgeving.
+wachtwoord moet gehashed zijn in sha256 in de database
+database heet challenge
+usernaam maakt niet uit
