@@ -12,7 +12,7 @@ function userLoginAction(){
   	{  
            if(empty($_POST["username"]) || empty($_POST["password"]))  
            {  
-                echo "all fields required";
+                header("Location: ../home/index");
            }  
            else  
            {  
@@ -26,8 +26,8 @@ function userLoginAction(){
 							       header("location:includes");
 						        } 
 					   	else
-            {
-						  echo"Verify failed! Please, insert the correct data.";
+           			    {
+						  header("Location: login");
 						}
           }	
        }
@@ -47,8 +47,12 @@ function getUser($login_username) {
               )
          );
     $user = $statement->fetch(PDO::FETCH_ASSOC);
-	
+	if ($rowcount == 0){
+		header("Location: ../home/index");
+	}
+	else{
 	return $user;
+	}
 }
 
 function verifyPassword($login_password, $user_password) {
@@ -56,6 +60,7 @@ function verifyPassword($login_password, $user_password) {
 		return true;
 	}
 	else{
+	header("Location: login");
 	return false;
 	}
 }
