@@ -1,7 +1,7 @@
 <html>
 <head>
 </head>
-<body>
+<body onload="checkIfUserIsLoggedIn()">
 <div class="login-page">
   <div class="form">
     <form class="login-form" action="login/userLoginAction" method="post">

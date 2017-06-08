@@ -1,5 +1,4 @@
 <?php
-
 function userLoginAction(){
 	session_start();  
 	$host= "localhost";
@@ -22,24 +21,39 @@ function userLoginAction(){
 						    //controleer zijn wachtwoord
 						        if (verifyPassword($_POST["password"], $user['password'])) 
                     {
+                    			   $userrole = getRole($_POST["username"]);
+                    			   if ($userrole != null){
+                    			   $_SESSION["roles"] = $userrole;
 							       $_SESSION["username"] = $_POST["username"];
-							       header("location:includes");
+							      // header("location:view");
+							   }
 						        } 
 					   	else
            			    {
-						  header("Location: login");
+						 header("Location: ../login");
 						}
           }	
        }
     }
+    if(isset($_SESSION['username'])){
+ 	header("location:view");   	
+    }
+    else
+    header("Location: ../login");
  }
 
+function getRole($username){
+	$connect = openDatabaseConnection();
+	$query = "SELECT roles FROM users WHERE username = '$username'";
+    $statement = $connect->prepare($query);  
+    $statement->execute();
+    $userrole = $statement->fetchColumn();
+    return $userrole;
+}
 
 function getUser($login_username) {
-	// haal de gebruiker op uit de database
 	$connect = openDatabaseConnection();
 	$query = "SELECT * FROM users WHERE username = '$login_username'";
-
     $statement = $connect->prepare($query);  
     $statement->execute(  
          array(  
@@ -47,14 +61,8 @@ function getUser($login_username) {
               )
          );
     $user = $statement->fetch(PDO::FETCH_ASSOC);
-	if ($rowcount == 0){
-		header("Location: ../home/index");
-	}
-	else{
 	return $user;
-	}
 }
-
 function verifyPassword($login_password, $user_password) {
 	if (password_verify($login_password, $user_password) ) {
 		return true;
@@ -63,4 +71,27 @@ function verifyPassword($login_password, $user_password) {
 	header("Location: login");
 	return false;
 	}
+}
+
+function checkIfUserIsLoggedIn(){
+ if(isset($_SESSION["username"]))  
+ {  
+	header("location:view");   
+ } 
+ else
+ {
+ 	echo("You are not logged in, please log in.");
+ }
+}
+
+function getAllExams(){
+	$db = openDatabaseConnection();
+
+	$sql = "SELECT * FROM exams";
+	$query = $db->prepare($sql);
+	$query->execute();
+
+	$db = null;
+
+	return $query->fetchAll();
 }

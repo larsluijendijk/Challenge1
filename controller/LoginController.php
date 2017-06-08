@@ -11,3 +11,14 @@ function includes()
 {
 	render("login/includes");	
 }
+
+function logout()
+{
+	render("login/logout");
+}
+function view()
+{
+	render("login/view", array(
+		'exams' => getAllExams()
+	));
+}
