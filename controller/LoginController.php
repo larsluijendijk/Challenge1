@@ -22,3 +22,8 @@ function view()
 		'exams' => getAllExams()
 	));
 }
+function users(){
+	render("login/users", array(
+		'users' => getAllUsers()
+));
+}

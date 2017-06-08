@@ -36,5 +36,12 @@ table, th, td {
 </table>
 <?php } ?>
 
+<?php
+if ($_SESSION["roles"] == "admin"){
+	echo "<a href='users'><p>users</p></a>";
+}
+?>
+
+
 </body>
 </html>
