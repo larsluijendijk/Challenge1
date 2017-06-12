@@ -25,7 +25,7 @@ function userLoginAction(){
                     			   if ($userrole != null){
                     			   $_SESSION["roles"] = $userrole;
 							       $_SESSION["username"] = $_POST["username"];
-							      // header("location:view");
+							       header("location:../exam/index");
 							   }
 						        } 
 					   	else
@@ -36,7 +36,7 @@ function userLoginAction(){
        }
     }
     if(isset($_SESSION['username'])){
- 	header("location:view");   	
+ 	header("location:../exam/index");   	
     }
     else
     header("Location: ../login");
@@ -84,26 +84,5 @@ function checkIfUserIsLoggedIn(){
  }
 }
 
-function getAllExams(){
-	$db = openDatabaseConnection();
 
-	$sql = "SELECT * FROM exams";
-	$query = $db->prepare($sql);
-	$query->execute();
 
-	$db = null;
-
-	return $query->fetchAll();
-}
-
-function getAllUsers(){
-	$db = openDatabaseConnection();
-
-	$sql = "SELECT * FROM users";
-	$query = $db->prepare($sql);
-	$query->execute();
-
-	$db = null;
-
-	return $query->fetchAll();
-}

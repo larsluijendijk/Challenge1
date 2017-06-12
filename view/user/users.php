@@ -15,21 +15,23 @@ table, th, td {
 </head>
 
 <body>
-<table>
+<table border="1">
     <tr>
       <th>Users</th>
     </tr>
         
-    <tr>
+
 
     <?php foreach ($users as $user) { ?>
+        <tr>
       <input type="hidden" value="<?= $user['id']; ?>">
       <td><?= $user['username']; ?></td>
+        </tr> 
     <?php } ?>
     
-    </tr> 
+
 </table>
 
-<a href="../login/view"><p>Back</p></a>
+<a href="../exam/index"><p>Back</p></a>
 </body>
 </html>

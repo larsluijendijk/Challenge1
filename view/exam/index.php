@@ -38,7 +38,7 @@ table, th, td {
 
 <?php
 if ($_SESSION["roles"] == "admin"){
-	echo "<a href='users'><p>users</p></a>";
+	echo "<a href='../user/users'><p>users</p></a>";
 }
 ?>
 
