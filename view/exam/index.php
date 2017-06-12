@@ -20,7 +20,6 @@ table, th, td {
       <th>Date</th>
       <th>Time</th>
       <th>Examinator</th>
-      <th>Students</th>
     </tr>
     <?php foreach ($exams as $exam) { ?>
 
@@ -31,7 +30,6 @@ table, th, td {
       <td><?= $exam['date']; ?></td>
       <td><?= $exam['time']; ?></td>
       <td><?= $exam['examinator']; ?></td>
-      <td><?= $exam['student_id']; ?></td>
     </tr> 
 </table>
 <?php } ?>

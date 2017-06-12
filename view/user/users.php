@@ -18,6 +18,8 @@ table, th, td {
 <table border="1">
     <tr>
       <th>Users</th>
+      <th>Edit</th>
+      <th>Delete</th>
     </tr>
         
 
@@ -26,6 +28,8 @@ table, th, td {
         <tr>
       <input type="hidden" value="<?= $user['id']; ?>">
       <td><?= $user['username']; ?></td>
+      <td><a href="">Edit</a></td>
+      <td><a href="">Delete</a></td>
         </tr> 
     <?php } ?>
     
