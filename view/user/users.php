@@ -1,6 +1,5 @@
 <?php
-require_once("header.php");
-require_once("includes.php");
+require_once("admin.php");
 ?>
 
 
@@ -37,6 +36,8 @@ table, th, td {
 
 </table>
 
-<a href="../exam/index"><p>Back</p></a>
+<?php
+require_once("header.php");
+?>
 </body>
 </html>

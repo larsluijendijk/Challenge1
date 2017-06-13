@@ -1,5 +1,4 @@
 <?php
-require_once("header.php");
 require_once("admin.php");
 ?>
 
@@ -21,3 +20,6 @@ require_once("admin.php");
 </form>
 
 <a href="<?= URL ?>user/users">Users</a>
+<?php
+require_once("header.php");
+?>

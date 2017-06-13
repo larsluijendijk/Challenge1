@@ -1,5 +1,4 @@
 <?php
-require_once("header.php");
 require_once("includes.php");
 ?>
 
@@ -35,11 +34,7 @@ table, th, td {
 <?php } ?>
 
 <?php
-if ($_SESSION["roles"] == "admin"){
-	echo "<a href='../user/users'><p>users</p></a>";
-}
+require_once("header.php");
 ?>
-
-
 </body>
 </html>

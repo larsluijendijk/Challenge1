@@ -1,5 +1,4 @@
 <?php
-require_once("header.php");
 require_once("admin.php");
 ?>
 
@@ -29,6 +28,8 @@ require_once("admin.php");
 </div>
 <body>
 <table>
-
+<?php
+require_once("header.php");
+?>
 </body>
 </html>
