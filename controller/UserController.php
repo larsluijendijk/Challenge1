@@ -22,6 +22,17 @@ function create()
 	render("user/create");	
 }
 
+function edit($id)
+{
+	render("user/edit",array(
+	'user' => showUpdateUser($id)
+	));
+	if (isset($_POST['submit'])) {
+		createUpdate();
+	}
+
+}	
+
 function createUser()
 {
 	if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['role']) ){
@@ -40,4 +51,14 @@ function deleteUser($id){
 	else{
  		header("Location:" . URL . "user/users");
 	}
+}
+
+function createUserUpdate()
+{
+		if (isset($_POST['id']) && isset($_POST['username']) && isset($_POST['password']) && isset($_POST['role'])){
+		$password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+		updateUserAction($_POST['id'], $_POST['username'], $password, $_POST['role']);
+	}
+	header("Location:" . URL . "user/users");
+
 }

@@ -3,14 +3,10 @@ require_once("header.php");
 require_once("admin.php");
 ?>
 
-<html>
-<head>
-<meta charset="utf-8">
-</head>
-<div class="containers">
-	<form  method="post" action="<?= URL ?>user/createUser">
+<form method="post" action="<?= URL ?>user/createUserUpdate">
+		<input type="hidden" name="id" value="<?= $user['id']; ?>">
 	<p>Gebruikersnaam:</p>
-	<input type="text" id="username" name="username"> 
+	<input type="text" id="username" name="username" value="<?= $user['username']; ?>"> 
 	<br/>
 	<p>Wachtwoord:</p> 
 	<input type="text" id="password" name="password"> 
@@ -24,11 +20,4 @@ require_once("admin.php");
 	<input type="submit" name="submit">
 </form>
 
-    <a href="<?= URL ?>user/users">Users</a>
-
-</div>
-<body>
-<table>
-
-</body>
-</html>
+<a href="<?= URL ?>user/users">Users</a>

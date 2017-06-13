@@ -38,3 +38,26 @@ function deleteUserAction($id){
 	$db = null;
 	header("Location:" . URL . "user/users");
 }
+
+function showUpdateUser($id){
+
+  if (isset($id)):
+      $db = openDatabaseConnection();
+
+      $query=$db->prepare("SELECT id, username FROM users WHERE id=$id");
+      $query->bindParam(':param', $param);
+      $query->execute();
+
+      $result = $query -> fetch();
+      return $result;
+    endif;
+}
+
+function updateUserAction($id, $username, $password, $role){
+	$db = openDatabaseConnection();
+
+    $query = "UPDATE users SET username='$username', password='$password', roles='$role' WHERE id=$id";
+    $result = $db->query($query);
+
+  $db = null;
+}
