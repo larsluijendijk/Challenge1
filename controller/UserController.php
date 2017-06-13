@@ -16,3 +16,20 @@ function users(){
 		'users' => getAllUsers()
 ));
 }
+
+function create()
+{
+	render("user/create");	
+}
+
+function createUser()
+{
+	if (isset($_POST['username']) && isset($_POST['password'])){
+		$password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+		createUserAction($_POST['username'], $password);
+	}
+	else{
+		echo"Fill in all fields.";
+	}
+}
+

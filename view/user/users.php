@@ -15,6 +15,9 @@ table, th, td {
 </head>
 
 <body>
+
+<p><a href="<?= URL ?>user/create">Maak een nieuwe gebruiker</a></p>
+
 <table border="1">
     <tr>
       <th>Users</th>
@@ -22,13 +25,11 @@ table, th, td {
       <th>Delete</th>
     </tr>
         
-
-
     <?php foreach ($users as $user) { ?>
         <tr>
       <input type="hidden" value="<?= $user['id']; ?>">
       <td><?= $user['username']; ?></td>
-      <td><a href="">Edit</a></td>
+      <td><a href="<?= URL ?>user/edit/<?= $user['id'] ?>">Edit</a></td>
       <td><a href="">Delete</a></td>
         </tr> 
     <?php } ?>
