@@ -11,13 +11,14 @@ function getAllUsers(){
 	return $query->fetchAll();
 }
 
-function createUserAction($username, $password) 
+function createUserAction($username, $password, $role) 
 {
   $db = openDatabaseConnection();
-  $sql = "INSERT INTO users(username, password) VALUES (:username, :password)";
+  $sql = "INSERT INTO users(username, password, roles) VALUES (:username, :password, :role)";
   $query = $db->prepare($sql);
   $query->execute(array(
     ':username' => $username,
+    ':role' => $role,
     ':password' => $password
     ));
 
