@@ -33,3 +33,11 @@ function createUser()
 	}
 }
 
+function deleteUser($id){
+	if(isset($id)){
+		deleteUserAction($id);
+	}
+	else{
+ 		header("Location:" . URL . "user/users");
+	}
+}

@@ -30,7 +30,7 @@ table, th, td {
       <input type="hidden" value="<?= $user['id']; ?>">
       <td><?= $user['username']; ?></td>
       <td><a href="<?= URL ?>user/edit/<?= $user['id'] ?>">Edit</a></td>
-      <td><a href="">Delete</a></td>
+      <td><a href="<?= URL ?>user/deleteUser/<?= $user['id'] ?>">Delete</a></td>
         </tr> 
     <?php } ?>
     

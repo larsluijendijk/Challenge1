@@ -25,3 +25,16 @@ function createUserAction($username, $password, $role)
   $db = null;
   header("Location:" . URL . "user/users");
 }
+
+function deleteUserAction($id){
+	$db = openDatabaseConnection();
+
+	$sql = "DELETE FROM users WHERE id=:id";
+	$query = $db->prepare($sql);
+	$query->execute(array(
+		':id' => $id
+		));
+
+	$db = null;
+	header("Location:" . URL . "user/users");
+}
